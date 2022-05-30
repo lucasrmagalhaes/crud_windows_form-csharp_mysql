@@ -91,12 +91,14 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.Color.Green;
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSalvar.Location = new System.Drawing.Point(164, 190);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(97, 23);
             this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lstContatos
@@ -104,7 +106,7 @@
             this.lstContatos.HideSelection = false;
             this.lstContatos.Location = new System.Drawing.Point(268, 59);
             this.lstContatos.Name = "lstContatos";
-            this.lstContatos.Size = new System.Drawing.Size(435, 154);
+            this.lstContatos.Size = new System.Drawing.Size(435, 363);
             this.lstContatos.TabIndex = 7;
             this.lstContatos.UseCompatibleStateImageBehavior = false;
             // 
@@ -126,19 +128,21 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Green;
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnBuscar.Location = new System.Drawing.Point(606, 29);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(97, 23);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 236);
+            this.ClientSize = new System.Drawing.Size(717, 447);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscarContato);
             this.Controls.Add(this.lblBuscarContato);
@@ -151,7 +155,7 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblNome);
             this.Name = "Form1";
-            this.Text = "CRUD";
+            this.Text = "Agenda de Contatos C# com MySQL";
             this.ResumeLayout(false);
             this.PerformLayout();
 
