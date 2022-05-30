@@ -8,7 +8,7 @@ namespace WFDoNetCoreGravarDadosMySQL
     {
         private MySqlConnection Conexao;
 
-        private string data_source = "datasource = localhost; username = root; password = ; database=db_agenda";
+        private string data_source = "datasource = localhost; username = root; password = ; database = db_agenda";
 
         public Form1()
         {
@@ -30,23 +30,36 @@ namespace WFDoNetCoreGravarDadosMySQL
         {
             try 
             {
-                // Criar conexão com MySQL
+                // Conexão MySQL
                 Conexao = new MySqlConnection(data_source);
-
-                string sql = "INSERT INTO contato (nome, email, telefone) " +
-                             "VALUES ('" + txtNome.Text + "', '" + txtEmail.Text + "', '" + txtTelefone.Text + "')";
-
-                // Executar Comando Insert
-                MySqlCommand comando = new MySqlCommand(sql, Conexao);
-
                 Conexao.Open();
 
-                comando.ExecuteReader();
+                MySqlCommand cmd = new MySqlCommand();
 
-                MessageBox.Show("Deu tudo certo! Inserido os dados.");
-            } catch(Exception ex) 
+                cmd.Connection = Conexao;
+
+                cmd.CommandText = "INSERT INTO contato (nome, email, telefone) " +
+                                  "VALUES (@nome, @email, @telefone) ";
+
+                // cmd.Prepare(); 
+
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Contato inserido com sucesso!",
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } catch(MySqlException ex) 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } finally {
                 Conexao.Close();
             }

@@ -104,7 +104,7 @@
             this.lstContatos.HideSelection = false;
             this.lstContatos.Location = new System.Drawing.Point(268, 59);
             this.lstContatos.Name = "lstContatos";
-            this.lstContatos.Size = new System.Drawing.Size(245, 154);
+            this.lstContatos.Size = new System.Drawing.Size(435, 154);
             this.lstContatos.TabIndex = 7;
             this.lstContatos.UseCompatibleStateImageBehavior = false;
             // 
@@ -119,14 +119,14 @@
             // 
             // txtBuscarContato
             // 
-            this.txtBuscarContato.Location = new System.Drawing.Point(268, 29);
+            this.txtBuscarContato.Location = new System.Drawing.Point(268, 32);
             this.txtBuscarContato.Name = "txtBuscarContato";
-            this.txtBuscarContato.Size = new System.Drawing.Size(140, 20);
+            this.txtBuscarContato.Size = new System.Drawing.Size(332, 20);
             this.txtBuscarContato.TabIndex = 9;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(416, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(606, 29);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(97, 23);
             this.btnBuscar.TabIndex = 10;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 236);
+            this.ClientSize = new System.Drawing.Size(731, 236);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscarContato);
             this.Controls.Add(this.lblBuscarContato);
