@@ -12,7 +12,6 @@ mysql -u root
 
 ***Criação do BD***
 
-mysql
 ```
 CREATE database db_agenda;
 

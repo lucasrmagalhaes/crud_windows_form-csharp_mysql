@@ -35,6 +35,10 @@
             this.txtTelefone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.lstContatos = new System.Windows.Forms.ListView();
+            this.lblBuscarContato = new System.Windows.Forms.Label();
+            this.txtBuscarContato = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNome
@@ -95,11 +99,50 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // lstContatos
+            // 
+            this.lstContatos.HideSelection = false;
+            this.lstContatos.Location = new System.Drawing.Point(268, 59);
+            this.lstContatos.Name = "lstContatos";
+            this.lstContatos.Size = new System.Drawing.Size(245, 154);
+            this.lstContatos.TabIndex = 7;
+            this.lstContatos.UseCompatibleStateImageBehavior = false;
+            // 
+            // lblBuscarContato
+            // 
+            this.lblBuscarContato.AutoSize = true;
+            this.lblBuscarContato.Location = new System.Drawing.Point(265, 9);
+            this.lblBuscarContato.Name = "lblBuscarContato";
+            this.lblBuscarContato.Size = new System.Drawing.Size(83, 13);
+            this.lblBuscarContato.TabIndex = 8;
+            this.lblBuscarContato.Text = "Buscar Contato:";
+            // 
+            // txtBuscarContato
+            // 
+            this.txtBuscarContato.Location = new System.Drawing.Point(268, 29);
+            this.txtBuscarContato.Name = "txtBuscarContato";
+            this.txtBuscarContato.Size = new System.Drawing.Size(140, 20);
+            this.txtBuscarContato.TabIndex = 9;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(416, 26);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(97, 23);
+            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 228);
+            this.ClientSize = new System.Drawing.Size(530, 236);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscarContato);
+            this.Controls.Add(this.lblBuscarContato);
+            this.Controls.Add(this.lstContatos);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtTelefone);
@@ -123,6 +166,10 @@
         private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.ListView lstContatos;
+        private System.Windows.Forms.Label lblBuscarContato;
+        private System.Windows.Forms.TextBox txtBuscarContato;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 
