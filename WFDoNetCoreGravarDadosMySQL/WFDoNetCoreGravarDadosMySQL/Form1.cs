@@ -73,12 +73,7 @@ namespace WFDoNetCoreGravarDadosMySQL
                                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                id_contato_selecionado = null;
-
-                txtNome.Text = String.Empty;
-                txtEmail.Text = "";
-                txtTelefone.Text = "";
-
+                zerar_formulario();
                 carregar_contatos();
             } catch(MySqlException ex) {
                 MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
@@ -197,10 +192,17 @@ namespace WFDoNetCoreGravarDadosMySQL
                 txtNome.Text = item.SubItems[1].Text;
                 txtEmail.Text = item.SubItems[2].Text;
                 txtTelefone.Text = item.SubItems[3].Text;
+
+                btnExcluir.Visible = true;
             }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
+        {
+            zerar_formulario();
+        }
+
+        private void zerar_formulario()
         {
             id_contato_selecionado = null;
 
@@ -209,6 +211,64 @@ namespace WFDoNetCoreGravarDadosMySQL
             txtTelefone.Text = "";
 
             txtNome.Focus();
+
+            btnExcluir.Visible = false;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            excluir_contato();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            excluir_contato();
+        }
+
+        private void excluir_contato()
+        {
+            try
+            {
+                DialogResult confirmacao = MessageBox.Show("Tem certeza que deseja excluir o registro?",
+                                "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacao == DialogResult.Yes)
+                {
+                    Conexao = new MySqlConnection(data_source);
+                    Conexao.Open();
+
+                    MySqlCommand cmd = new MySqlCommand();
+
+                    cmd.Connection = Conexao;
+
+                    cmd.CommandText = "DELETE FROM contato WHERE id = @id ";
+
+                    cmd.Parameters.AddWithValue("@id", id_contato_selecionado);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Contato excluído com sucesso!",
+                                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    carregar_contatos();
+                    zerar_formulario();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexao.Close();
+            }
         }
     }
 }
