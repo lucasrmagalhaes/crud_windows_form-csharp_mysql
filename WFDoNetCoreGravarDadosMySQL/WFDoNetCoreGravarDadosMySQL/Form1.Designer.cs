@@ -39,6 +39,7 @@
             this.lblBuscarContato = new System.Windows.Forms.Label();
             this.txtBuscarContato = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNome
@@ -105,10 +106,12 @@
             // 
             this.lstContatos.HideSelection = false;
             this.lstContatos.Location = new System.Drawing.Point(268, 59);
+            this.lstContatos.MultiSelect = false;
             this.lstContatos.Name = "lstContatos";
             this.lstContatos.Size = new System.Drawing.Size(435, 363);
             this.lstContatos.TabIndex = 7;
             this.lstContatos.UseCompatibleStateImageBehavior = false;
+            this.lstContatos.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lstContatos_ItemSelectionChanged);
             // 
             // lblBuscarContato
             // 
@@ -138,11 +141,24 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.Color.Green;
+            this.btnNovo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnNovo.Location = new System.Drawing.Point(15, 190);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(97, 23);
+            this.btnNovo.TabIndex = 11;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 447);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscarContato);
             this.Controls.Add(this.lblBuscarContato);
@@ -174,6 +190,7 @@
         private System.Windows.Forms.Label lblBuscarContato;
         private System.Windows.Forms.TextBox txtBuscarContato;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnNovo;
     }
 }
 
